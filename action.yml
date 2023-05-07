@@ -7,10 +7,8 @@ runs:
     - uses: actions/setup-python@v4
       with:
         python-version: "3.x"
-        check-latest: true
-        cache: "pip"
 
-    - run: pip install -r requirements.txt
+    - run: pip install ansible molecule molecule-plugins docker
       shell: bash
 
     - run: ansible --version
