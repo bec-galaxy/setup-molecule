@@ -8,7 +8,6 @@ This action provides the following functionality for GitHub Actions users:
 
 - Installing Python.
 - Installing the latest version of Molecule with Docker.
-- Caching the installed packages.
 
 ## Basic usage
 
@@ -21,7 +20,7 @@ steps:
     uses: actions/checkout@v3
 
   - name: Setup Molecule
-    uses: bec-galaxy/setup-molecule@v1
+    uses: bec-galaxy/setup-molecule@v2
 
   - name: Run Molecule tests
     run: molecule test
@@ -48,7 +47,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Lint
-        uses: bec-galaxy/setup-lint@v1
+        uses: bec-galaxy/setup-lint@v2
 
       - name: Run Lint tests
         run: ansible-lint
@@ -62,7 +61,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Molecule
-        uses: bec-galaxy/setup-molecule@v1
+        uses: bec-galaxy/setup-molecule@v2
 
       - name: Run Molecule tests
         run: molecule test
