@@ -9,6 +9,8 @@ This action provides the following functionality for GitHub Actions users:
 - Installing Python.
 - Installing the latest version of Molecule with Docker.
 
+> This action is a rolling release, it will install the latest dependencies on each run. Use [the official Ansible action](https://github.com/marketplace/actions/ansible-lint) for more stability. See [Ansible Creator Execution Environment](https://github.com/ansible/creator-ee) for additional information.
+
 ## Basic usage
 
 See [action.yml](action.yml)
@@ -20,14 +22,13 @@ steps:
     uses: actions/checkout@v3
 
   - name: Setup Molecule
-    uses: bec-galaxy/setup-molecule@v2
+    uses: bec-galaxy/setup-molecule@{Version}
 
   - name: Run Molecule tests
     run: molecule test
 ```
 
 **Lint and Molecule**
-
 ```yaml
 ---
 name: Molecule
@@ -47,7 +48,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Lint
-        uses: bec-galaxy/setup-lint@v2
+        uses: bec-galaxy/setup-lint@{Version}
 
       - name: Run Lint tests
         run: ansible-lint
@@ -61,7 +62,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Molecule
-        uses: bec-galaxy/setup-molecule@v2
+        uses: bec-galaxy/setup-molecule@{Version}
 
       - name: Run Molecule tests
         run: molecule test
